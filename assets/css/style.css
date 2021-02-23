@@ -2,3 +2,15 @@ body {
     font-family: "Montserrat";
     background-image: url("../images/quizBack.jpg");
 }
+
+.description {
+    
+    text-transform: uppercase;
+    left: -4rem;
+    margin-top: 2rem;
+    color: white;
+}
+.col-sm-4:hover .description {
+    font-size: 2rem;
+  }
+
