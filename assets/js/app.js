@@ -1,6 +1,6 @@
-const easy = document.querySelector(".easy");
-const normal = document.querySelector(".normal");
-const hard = document.querySelector(".hard");
+const easy = document.querySelector(".Easy");
+const normal = document.querySelector(".Normal");
+const hard = document.querySelector(".Hard");
 
 easy.addEventListener("click", () => {
   window.location.href = `quiz.html?difficulty=easy`;
