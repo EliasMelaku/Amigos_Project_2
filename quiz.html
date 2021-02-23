@@ -1,10 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quizity</title>
-  </head>
-  <body></body>
+    <title>Quizity | Difficulty Selection</title>
+</head>
+
+<body id="body">
+    <main>
+        <section id="card">
+            <h1 class="text-center" id="title"></h1>
+            <div class="row" id="buttons"></div>
+            <h1 id="question-number"></h1>
+            <div class="loader text-center">
+                <div class="spinner-border" role="status"></div>
+                <div class="text" style="margin-top: 1rem;">
+                    Getting Categories . . . .
+                </div>
+            </div>
+            <div class="couldntConnect text-center hide" style="margin-top: 1rem">
+                <img src="assets/images/#" alt="">
+                <p>
+                    Sorry, we couldn't connect at the moment. Check your connection and try again in a few minutes.
+                </p>
+                <div>
+                    <i class="fas fa-redo retry"></i>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
 </html>
