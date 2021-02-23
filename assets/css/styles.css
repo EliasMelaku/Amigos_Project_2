@@ -33,7 +33,16 @@ body {
 .row {
     padding: 1rem;
 }
-
+.btn {
+    position: relative;
+    width: 25%;
+    margin: 1rem 4rem;
+    left: 15%;
+  }
+  .number {
+    position: relative;
+    left: 50%;
+  }
 .retry {
     cursor: pointer;
 }
