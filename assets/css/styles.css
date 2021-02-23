@@ -1,0 +1,28 @@
+body {
+    background-image: url("../images/quizBack.jpg");
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.couldntConnect img {
+    width: 15vh;
+    height: 15vh;
+}
+
+.hide {
+    display: none;
+}
+
+#title {
+    margin: 4rem 0;
+    font-family: "Montserrat";
+}
+
+.row {
+    padding: 1rem;
+}
