@@ -83,10 +83,72 @@ function setQuestionNumber() {
   }
 
 
+// sets the buttons for each question
+function setQuestionButtons(list, answers, correct) {
+    const div = document.getElementById("buttons");
+    setQuestionNumber();
+    answers.forEach((element) => {
+      const button = document.createElement("button");
+      const text = document.createTextNode(decodeChars(element)); // decoding special characters from answers
+      button.appendChild(text);
+      button.className = "btn btn-primary";
+      div.appendChild(button);
+      button.addEventListener("click", () =>
+        questionButtonEventHandler(button, correct, list)
+      );
+    });
+  }
+  
+// event handler for the question buttons
+function questionButtonEventHandler(button, correctAnswer, list) {
+    const pressedButton = button.innerText;
+    if (pressedButton === correctAnswer) {
+      score++;
+      button.classList.remove("btn-primary");
+      button.classList.add("btn-success");
+    } else {
+      alert("Wrong.\nCorrect Answer: " + correctAnswer);
+    }
+    index++;
+    removeButtons();
+    startQuiz(list);
+  }
 
+// removes the question number from the bottom
+function removeQuestionNumber() {
+    const h1Element = document.getElementById("question-number");
+    h1Element.classList.remove("number");
+    h1Element.innerText = "";
+  }
 
-
-
+// shows the restart button at the end of the quiz
+function showRestartButton() {
+    removeQuestionNumber();
+    const div = document.getElementById("buttons");
+    const button = document.createElement("i");
+    // const text = document.createTextNode("Restart");
+    button.className = "fas fa-redo fa-3x restartBtn text-center";
+    // button.appendChild(text);
+    div.appendChild(button);
+    button.addEventListener("click", () => document.location.reload(true));
+  }
+  
+  // starts the quiz and will load one question at a time
+  function startQuiz(questionList) {
+    const numberOfQuestions = questionList.length - 1;
+    if (index === numberOfQuestions) {
+      setTitle("Your score was " + score + "/10");
+      showRestartButton();
+      return;
+    }
+    setTitle(questionList[index].question);
+    setQuestionButtons(
+      questionList,
+      questionList[index].answers,
+      questionList[index].correct
+    );
+  }
+  
 
 
 
