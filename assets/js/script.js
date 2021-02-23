@@ -45,4 +45,78 @@ async function fetchQuestionsFromAPI(url) {
     }
     return false;
   }
+// Fisher-Yates array shuffling algorithm
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * i);
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+// decodes special HTML characters
+function decodeChars(specialCharacterString) {
+    const text = document.createElement("textarea");
+    text.innerHTML = specialCharacterString;
+    return text.value;
+  }
+// sets the title for the h1 tag
+function setTitle(string) {
+    const title = document.getElementById("title");
+    title.innerText = string;
+  }
+
+// removes buttons from the div tag
+function removeButtons() {
+    const div = document.getElementById("buttons");
+    while (div.firstChild) {
+      div.removeChild(div.firstChild);
+    }
+  }
+// sets the question number at the bottom of the quiz
+function setQuestionNumber() {
+    let questionNumber = index + 1;
+    const h1Element = document.getElementById("question-number");
+    h1Element.classList.add("number");
+    h1Element.innerText = questionNumber + "/10";
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
