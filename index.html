@@ -11,6 +11,11 @@
       integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
@@ -18,5 +23,28 @@
 
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <h1
+        class="title text-center"
+        style="font-family: 'Montserrat'; position: relative; top: 2rem"
+      >
+        Select the difficulty level
+      </h1>
+      <div class="row">
+        <div class="col-sm-4 easy">
+          <img src="assets/images/easy.png" alt="" />
+          <p class="description text-center">easy</p>
+        </div>
+        <div class="col-sm-4 normal">
+          <img src="assets/images/normal.png" alt="" />
+          <p class="description text-center">normal</p>
+        </div>
+        <div class="col-sm-4 hard">
+          <img src="assets/images/hard.png" alt="" />
+          <p class="description text-center">hard</p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
