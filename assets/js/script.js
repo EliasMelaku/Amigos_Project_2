@@ -197,6 +197,17 @@ async function setCategoryButtons() {
 }
 
 
+// event handler for the category buttons
+async function categoryButtonEventHandler(button) {
+  const url = BASE_URL + "&category=" + button.id;
+  const list = await fetchQuestionsFromAPI(url);
+  if (list === false) {
+    alert("Could not load quiz. Try again later.");
+    return;
+  }
+  removeButtons();
+  startQuiz(list);
+}
 
 
 function main() {
