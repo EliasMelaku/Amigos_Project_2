@@ -29,7 +29,36 @@ body {
     margin: 4rem 0;
     font-family: "Montserrat";
 }
+.number {
+    position: relative;
+    left: 50%;
+  }
 
+.buttonCards {
+    margin: 1rem 0;
+    border: none;
+    box-shadow: 0 0 8px 1px rgb(107, 103, 103);
+    max-height: 40vh;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    margin: 1rem 1rem;
+  }
+
+  .cardImgHolder {
+    overflow: hidden;
+  }
+  .cardImg {
+    width: 100%;
+    height: 30vh;
+    transition: all 0.5s;
+  }
+  .card-body {
+    background-image: radial-gradient(#92dce9, #338492);
+  }
+  .buttonCards:hover .cardImg {
+    transform: scale(1.2);
+  }
 .row {
     padding: 1rem;
 }
@@ -43,6 +72,17 @@ body {
     position: relative;
     left: 50%;
   }
+.restartBtn,
 .retry {
     cursor: pointer;
 }
+@media screen and (max-width: 570px) {
+    .buttonCards {
+      width: 70%;
+      margin: 1rem auto;
+    }
+    .btn {
+      width: 50%;
+    }
+  }
+  
