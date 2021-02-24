@@ -149,7 +149,75 @@ function showRestartButton() {
     );
   }
   
+// sets the categories from the API as buttons
+async function setCategoryButtons() {
+  const categories = await fetchCategoriesFromAPI();
+  const buttonList = document.getElementById("buttons");
 
+  for (const category of categories) {
+    const column = document.createElement("div");
+    const card = document.createElement("div");
+    const cardImgHolder = document.createElement("div");
+    const image = document.createElement("img");
+    const cardBody = document.createElement("div");
+    const text = document.createElement("h5");
+    text.innerHTML = category.name;
+    let imgName = text.innerHTML;
+    if (imgName.includes(":")) {
+      let temp = imgName.split(":");
+      imgName = temp[1].substring(1);
+    }
+    if (imgName.includes("&")) {
+      let temp = imgName.split("&amp;");
+      imgName = temp[1].substring(1);
+    }
+    let source;
+
+    source = `assets/images/${imgName}.JPG`;
+
+    image.src = source;
+
+    column.className = "col-sm-3";
+    cardImgHolder.className = "cardImgHolder";
+    text.className = "card-title text-center";
+    image.className = "card-img-top cardImg";
+    cardBody.className = "card-body";
+
+    cardBody.appendChild(text);
+    card.setAttribute("id", category.id);
+    // card.style = ""
+    card.className = "card buttonCards";
+    cardImgHolder.appendChild(image);
+    card.appendChild(cardImgHolder);
+    card.appendChild(cardBody);
+    column.appendChild(card);
+    buttonList.appendChild(column);
+    card.addEventListener("click", () => categoryButtonEventHandler(card));
+  }
+}
+
+
+
+
+function main() {
+  setTitle("Select a Category");
+  setCategoryButtons()
+    .then(() => {
+      loader.classList.add("hide");
+    })
+    .catch(() => {
+      const retry = document.querySelector(".retry");
+      const couldntConnect = document.querySelector(".couldntConnect");
+      retry.addEventListener("click", () => {
+        document.location.reload(true);
+      });
+      title.classList.add("hide");
+      loader.classList.add("hide");
+      couldntConnect.classList.remove("hide");
+    });
+}
+
+main();
 
 
 
