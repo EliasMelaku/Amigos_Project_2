@@ -1,10 +1,10 @@
 //Get the difficulty from the previous page
 const urlParams = new URLSearchParams(window.location.search);
 var difficulty = String(urlParams.get("difficulty"));
+var user = String(urlParams.get("username"));
 const BASE_URL =
-  "https://opentdb.com/api.php?amount=11&difficulty=" + difficulty;
+  "https://opentdb.com/api.php?amount=2&difficulty=" + difficulty;
 const TOTAL_CATEGORIES_URL = "https://opentdb.com/api_category.php";
-console.log(BASE_URL);
 let index = 0;
 let score = 0;
 
@@ -120,9 +120,71 @@ function removeQuestionNumber() {
   h1Element.innerText = "";
 }
 
+// Add data to localStorage
+function addToStorage() {
+  var personWithScore = {
+    username: user,
+    score: score,
+  };
+  id = localStorage.length;
+  window.localStorage.setItem(id, JSON.stringify(personWithScore));
+}
+
+// function to fill the table with info from local storage
+function fillTableWithInfo() {
+  addToStorage();
+
+  // get the amount of stuff in the storage
+  var people = localStorage.length;
+
+  const leaderBoard = document.querySelector(".leaderboard");
+  const leaderHead = document.querySelector(".leaderHead");
+  let thead = leaderBoard.createTHead();
+  let row = thead.insertRow();
+  let userHead = document.createElement("th");
+  let scoreHead = document.createElement("th");
+
+  userHead.innerHTML = "Username";
+  scoreHead.innerHTML = "Score";
+  row.appendChild(userHead);
+  row.appendChild(scoreHead);
+
+  var leaders = [];
+  var actualLeaders = [];
+
+  for (var i = 0; i < people; i++) {
+    let userObj = JSON.parse(window.localStorage.getItem(i));
+    leaders.push(userObj);
+  }
+  leaders.sort((a, b) => (a.score > b.score ? -1 : 1));
+  for (var i = 0; i < leaders.length; i++) {
+    if (!actualLeaders.includes(leaders[i].username)) {
+      actualLeaders.push(leaders[i]);
+    }
+  }
+  actualLeaders.forEach((person) => {
+    let userRow = thead.insertRow();
+    let actualUser = document.createElement("td");
+    let userScore = document.createElement("td");
+
+    actualUser.innerHTML = person.username;
+    if (person.username == user) {
+      actualUser.className = "currentPlayerRow";
+    }
+    userScore.innerHTML = person.score;
+
+    userRow.appendChild(actualUser);
+    userRow.appendChild(userScore);
+  });
+
+  leaderBoard.appendChild(thead);
+  leaderHead.innerHTML = "LeaderBoard";
+}
+
 // shows the restart button at the end of the quiz
 function showRestartButton() {
   removeQuestionNumber();
+  fillTableWithInfo();
   const div = document.getElementById("buttons");
   const button = document.createElement("i");
   // const text = document.createTextNode("Restart");
@@ -148,7 +210,7 @@ function startQuiz(questionList) {
   );
 }
 
-// sets the categories from the API as buttons
+// sets the categories from the API as cards
 async function setCategoryButtons() {
   const categories = await fetchCategoriesFromAPI();
   const buttonList = document.getElementById("buttons");
