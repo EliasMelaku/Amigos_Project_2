@@ -125,6 +125,7 @@ function addToStorage() {
   var personWithScore = {
     username: user,
     score: score,
+    difficulty: difficulty,
   };
   id = localStorage.length;
   window.localStorage.setItem(id, JSON.stringify(personWithScore));
@@ -143,38 +144,40 @@ function fillTableWithInfo() {
   let row = thead.insertRow();
   let userHead = document.createElement("th");
   let scoreHead = document.createElement("th");
+  let diffHead = document.createElement("th");
 
   userHead.innerHTML = "Username";
   scoreHead.innerHTML = "Score";
+  diffHead.innerHTML = "Difficulty";
+
   row.appendChild(userHead);
   row.appendChild(scoreHead);
+  row.appendChild(diffHead);
 
   var leaders = [];
-  var actualLeaders = [];
 
   for (var i = 0; i < people; i++) {
     let userObj = JSON.parse(window.localStorage.getItem(i));
     leaders.push(userObj);
   }
   leaders.sort((a, b) => (a.score > b.score ? -1 : 1));
-  for (var i = 0; i < leaders.length; i++) {
-    if (!actualLeaders.includes(leaders[i].username)) {
-      actualLeaders.push(leaders[i]);
-    }
-  }
-  actualLeaders.forEach((person) => {
+
+  leaders.forEach((person) => {
     let userRow = thead.insertRow();
     let actualUser = document.createElement("td");
     let userScore = document.createElement("td");
+    let chosenDifficulty = document.createElement("td");
+    if (person.username == user) {
+      userRow.className = "currentPlayerRow";
+    }
 
     actualUser.innerHTML = person.username;
-    if (person.username == user) {
-      actualUser.className = "currentPlayerRow";
-    }
     userScore.innerHTML = person.score;
+    chosenDifficulty.innerHTML = person.difficulty;
 
     userRow.appendChild(actualUser);
     userRow.appendChild(userScore);
+    userRow.appendChild(chosenDifficulty);
   });
 
   leaderBoard.appendChild(thead);

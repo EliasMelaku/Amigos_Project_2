@@ -79,6 +79,22 @@ body {
 .retry {
   cursor: pointer;
 }
+
+/* ====================================ADD STYLE FOR TABLE HERE ==================== */
+
+/* to make the current player row stand out from the others */
+td {
+}
+tr {
+}
+th {
+}
+table {
+}
+.currentPlayerRow {
+  background-color: #338492;
+}
+
 @media screen and (max-width: 570px) {
   .buttonCards {
     width: 70%;
