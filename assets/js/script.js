@@ -192,9 +192,9 @@ function showRestartButton() {
     fillTableWithInfo();
     const div = document.getElementById("buttons");
     const button = document.createElement("i");
-    // const text = document.createTextNode("Restart");
+    const text = document.createTextNode(" Restart");
     button.className = "fas fa-redo fa-3x restartBtn text-center";
-    // button.appendChild(text);
+    button.appendChild(text);
     div.appendChild(button);
     button.addEventListener("click", () => document.location.reload(true));
 }
