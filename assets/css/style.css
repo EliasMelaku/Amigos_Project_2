@@ -8,8 +8,19 @@ body {
 }
 
 /* ================== part to be styled=================================== */
+
 .header {
-  background-color: white;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.308), rgba(0, 0, 0, 0.432)),
+    url("../images/header.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 2rem;
+  position: absolute;
+  height: 30vh;
+  margin-top: -2rem;
+}
+.header h1 {
+  color: white;
 }
 /* ========================================================================== */
 .col-sm-4 img {

@@ -1,120 +1,120 @@
 body {
-    background-image: url("../images/quizBack.jpg");
+  background-image: url("../images/quizBack.jpg");
 }
 
 .header {
-    background-color: white;
+  background-color: white;
 }
 
 .loader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .couldntConnect img {
-    width: 15vh;
-    height: 15vh;
+  width: 15vh;
+  height: 15vh;
 }
 
 .couldntConnect {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -30%);
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 #title {
-    margin: 4rem 0;
-    font-family: "Montserrat";
+  margin: 0 0;
+  font-family: "Montserrat";
+  background-image: linear-gradient(rgba(0, 0, 0, 0.308), rgba(0, 0, 0, 0.432)),
+    url("../images/header.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 2rem;
+  height: 30vh;
+  color: white;
 }
 
 .number {
-    position: relative;
-    left: 50%;
+  position: relative;
+  left: 50%;
 }
 
 .buttonCards {
-    margin: 1rem 0;
-    border: none;
-    box-shadow: 0 0 8px 1px rgb(107, 103, 103);
-    max-height: 40vh;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 0.5rem;
-    margin: 1rem 1rem;
+  margin: 1rem 0;
+  border: none;
+  box-shadow: 0 0 8px 1px rgb(107, 103, 103);
+  max-height: 40vh;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  margin: 1rem 1rem;
 }
 
 .cardImgHolder {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .cardImg {
-    width: 100%;
-    height: 30vh;
-    transition: all 0.5s;
+  width: 100%;
+  height: 30vh;
+  transition: all 0.5s;
 }
 
 .card-body {
-    background-image: radial-gradient(#47a8b9, #338492);
+  background-image: radial-gradient(#47a8b9, #338492);
 }
 
 .buttonCards:hover .cardImg {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .row {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .btn {
-    position: relative;
-    width: 25%;
-    margin: 1rem 4rem;
-    left: 15%;
+  position: relative;
+  width: 25%;
+  margin: 1rem 4rem;
+  left: 15%;
 }
 
 .number {
-    position: relative;
-    left: 50%;
+  position: relative;
+  left: 50%;
 }
 
 .restartBtn,
 .retry {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-
 /* ====================================ADD STYLE FOR TABLE HERE ==================== */
-
 
 /* to make the current player row stand out from the others */
 
 td {
-    background-color: #a5d8e0;
+  background-color: #a5d8e0;
 }
 
-tr {}
-
-th {}
-
-table {}
-
 .currentPlayerRow {
-    background-color: #408e9c;
+  background-color: #00414d;
+  color: white;
 }
 
 @media screen and (max-width: 570px) {
-    .buttonCards {
-        width: 70%;
-        margin: 1rem auto;
-    }
-    .btn {
-        width: 50%;
-    }
+  .buttonCards {
+    width: 70%;
+    margin: 1rem auto;
+  }
+  .btn {
+    width: 50%;
+  }
 }
